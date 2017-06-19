@@ -1,0 +1,117 @@
+html, body{
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+        }
+        #main-wrapper{
+            min-height: 100%;
+            position: relative;
+        }
+		.cHojaMem{
+			width: 812px;
+			height: 1074px;
+			margin: auto;
+		}
+		.cuadroUno{
+			width: 812px;
+			height: 532px;
+			display: inline-block;
+			
+		}
+		.fondo{
+			position: absolute;
+			margin: auto;
+			z-index: 1;
+		}
+		.capaDos{
+			width: 812px;
+			height: 400px;
+			position: relative;
+            margin: auto;
+            left: 0px;
+            top: 80px;
+            right: 0px;
+			z-index: 2;
+		}
+		.ctxtCuadros{
+			width: 100%;
+			height: 30px;
+		}
+		.cTexto{
+			width: 20%;
+			height: 30px;
+			float: left;
+			line-height: 30px;
+			top: 0px;
+			bottom: 0px;
+			padding-left: 10px;
+			font-weight: bold;
+		}
+		.cTextoDos{
+			width: 20%;
+			height: 90px;
+			float: left;
+			line-height: 30px;
+			top: 0px;
+			bottom: 0px;
+			padding-left: 10px;
+			font-weight: bold;
+		}
+		.cTextoTres{
+			width: 40%;
+			height: 30px;
+			float: left;
+			line-height: 30px;
+			top: 0px;
+			bottom: 0px;
+			padding-left: 10px;
+			font-weight: bold;
+		}
+		.cRTexto{
+			width: 80%;
+			height: 30px;
+			line-height: 30px;
+			top: 0px;
+			bottom: 0px;
+			float: left;
+			padding-left: 10px;
+			color: #929292;
+			font-style: italic;
+		}
+		.cRTextoDos{
+			width: 30%;
+			height: 30px;
+			line-height: 30px;
+			top: 0px;
+			bottom: 0px;
+			float: left;
+			padding-left: 10px;
+			color: #929292;
+			font-style: italic;
+		}
+		.cRTextoTres{
+			width: 80%;
+			height: 90px;
+			line-height: 30px;
+			top: 0px;
+			bottom: 0px;
+			float: left;
+			padding-left: 10px;
+			color: #929292;
+			font-style: italic;
+		}
+		.cRTextoCuatro{
+			width: 60%;
+			height: 30px;
+			line-height: 30px;
+			top: 0px;
+			bottom: 0px;
+			float: left;
+			padding-left: 10px;
+			color: #929292;
+			font-style: italic;
+		}
+		.colorGris{
+			font-size: 1.2em;
+			color: #929292;
+		}

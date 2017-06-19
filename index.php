@@ -8,6 +8,7 @@ date_default_timezone_set('America/Mexico_City');
 $dia = date("d-m-Y");
 $hora = date("g:i:s a");
 
+
  ?>
 
 
