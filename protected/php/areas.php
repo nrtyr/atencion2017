@@ -5,10 +5,10 @@ header('Content-Type: text/html; Charset=UTF-8');
 
 $db = new SQLite3("../data/catalogos.db");
 
-$cs = $db -> query("SELECT * FROM areasDeptos WHERE DEPARTAMENTO LIKE '%$_GET[term]%' ;");
+$cs = $db -> query("SELECT * FROM catAreasDeptos WHERE areasDeptos LIKE '%$_GET[term]%' ;");
 	    
 while($resul = $cs->fetchArray()) {
-  $return_arr[] =  $resul['DEPARTAMENTO'];
+  $return_arr[] =  $resul['areasDeptos'];
 }
 echo json_encode($return_arr);
 

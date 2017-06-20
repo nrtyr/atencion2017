@@ -8,6 +8,18 @@ date_default_timezone_set('America/Mexico_City');
 $dia = date("d-m-Y");
 $hora = date("g:i:s a");
 
+$con = new SQLite3("protected/data/aten.db") or die("Problemas para conectar");
+$cs = $con -> query("SELECT COUNT(folioAten), MAX(folioAten) FROM datosAtension");
+while ($resul = $cs -> fetchArray()) {
+            $count=$resul[0];
+            $max=$resul[1];
+        }
+        if ($count == 0) {
+            $numFolio="A0001";
+        }else{
+            $numFolio='A'.substr((substr($max, 1)+ 10001), 1);
+        }
+$con -> close();
 
  ?>
 
@@ -27,6 +39,72 @@ $hora = date("g:i:s a");
 
 	<script type="text/javascript" src="js/bootstrap.js"></script>
 
+	<style>
+		
+		input[type=text],[type=number]{
+			text-transform: uppercase;
+		}
+		textarea{
+			text-transform: uppercase;
+		}
+		.resBtn{
+			background-color: #562CDF;
+			color: #FFF;
+		}
+		.resBtn:hover{
+			background-color: #3B008B;
+			color: #FFF;
+		}
+
+		.btnVerdeF{
+			background-color: #88c441;
+			color: #FFF;
+			width: 50%;
+		}
+		.btnVerdeF:hover{
+			background-color: #6FA232;
+			color: #FFF;
+		}
+		.txtRosa{
+			color: #eb1561;
+		}
+		.txtVerde{
+			color: #009687;
+		}
+		.panel{
+            border-color: #009687;
+        }
+        .panelTop{
+            background-color: #009687;
+            color: #fff;
+        }
+        .btnVerde{
+            background-color: #009687;
+            color: #FFF;
+        }
+        .btnVerde:hover{
+            background-color: #006D62;
+            color: #FFF;
+        }
+        .btnAzul{
+            background-color: #45d0e3;
+            color: #FFF;
+            width: 48%;
+        }
+        .btnAzul:hover{
+            background-color: #36A2B1;
+            color: #FFF;
+        }
+        .btnRojo{
+        	background-color: #e64759;
+            color: #FFF;
+        }
+        .btnRojo:hover{
+        	background-color: #932c38;
+            color: #FFF;
+        }
+	</style>
+
 </head>
 <body>
 <div class="container">
@@ -34,13 +112,13 @@ $hora = date("g:i:s a");
 		<div class="col-md-6 col-md-offset-3 panel panel-success">
 			<h1>Atención Ciudadana</h1>
 			<br>
-			<form action="insertar.php" method="post">
+			<form action="protected/php/insertar.php" method="post">
 			 <div class="form-group">
 				<div class="row">
   					<div class="col-md-4">
   					<br>
 						<label for="">Folio:</label>
-						<input type="text" name="txtFolio" placeholder="Folio" class="form-control" />
+						<input type="text" name="txtFolio" placeholder="Folio" class="form-control" value="<?php echo $numFolio; ?>" />
 					</div>
 						
 					<div class="col-md-4">
@@ -58,7 +136,7 @@ $hora = date("g:i:s a");
 					<div class="col-md-6">
 					<br>
 						<label for="">Sección:</label>
-						<input type="text" name="txtSeccion" placeholder="Sección" class="form-control" maxlength="4" pattern="[0-9]{4}" id="autoSeccion" autocomplete="on"/>
+						<input type="text" name="txtSecc" size="4" maxlength="4" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" placeholder="Sección..." id="autoSeccion" autocomplete="on" class="form-control" />
 					</div>
 						
 					<div class="col-md-6">
@@ -79,12 +157,12 @@ $hora = date("g:i:s a");
 						<div class="col-md-6">
 						<br>
 							<label for="">Tel. Particular:</label>
-							<input type="tel" name="txtTelP" placeholder="Tel. Particular..." class="form-control"/>
+							<input type="text" name="txtTelP" placeholder="Tel. Particular..." size="8" maxlength="8" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" placeholder="Asistentes..." autocomplete="on" class="form-control"/>
 						</div>
 						<div class="col-md-6">
 						<br>
 							<label for="">Tel. Celular:</label>
-							<input type="tel" name="txtTelCelu" placeholder="Tel. Celular..." class="form-control"/>
+							<input type="text" name="txtTelCelu" placeholder="Tel. Celular..." size="10" maxlength="10" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" placeholder="Asistentes..." autocomplete="on" class="form-control"/>
 						</div>
 					</div>
 				<br>
@@ -100,10 +178,24 @@ $hora = date("g:i:s a");
 				<label for="">Atendió:</label>
 				<input type="text" name="txtUsuario" placeholder="Atendió...." class="form-control"/>
 				<br>
-				<input type="submit" value="Guardar" class="btn btn-success btn-lg btn-block"/>
-				<br>
 				</div>
+
+					<div class="form-group form-group-lg">
+
+					    <input type="submit" value="Guardar" class="btn btn-lg btn-block btnVerde"/>
+					</div>
+
+					<div class="form-group form-group-lg">
+
+					    <a href="menu.php" ><div class="btn btn-lg btnAzul"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Regresa</div>
+					</a>
+
+					    <input type="reset" value="Limpiar" class="btn btn-lg btnVerdeF"/>
+					</div>
 			</form>
+					<a href="destruir.php" ><button class="btn btn-lg btn-block btnRojo">Cerrar sesion <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></button>
+							</a>
+							<br>
 		</div>
 	</div>
 </div>
