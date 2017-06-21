@@ -68,11 +68,3 @@ $con -> close();
 
 
  ?>
-<html>
-	<head></head>
-	<style>
-		body{
-        	background-color: #374046;
-        }
-	</style>
-</html>

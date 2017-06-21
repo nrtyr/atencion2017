@@ -6,26 +6,20 @@
 	<title>Bienvenido! AVONN</title>
 	<link rel="stylesheet" href="../../css/bootstrap.css">
 	<link rel="stylesheet" href="../../css/bootstrap-theme.css">
-	<link rel="stylesheet" href="../../css/fileinput.css">
 	<link rel="stylesheet" href="../../css/jquery-ui.css">
 	<link rel="stylesheet" href="../../css/style.css">
 	<script type="text/javascript" src="../../js/bootstrap.js"></script>
 	<script type="text/javascript" src="../../js/jquery.min.js"></script>
 	<script type="text/javascript" src="../../js/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="../../js/fileinput.js"></script>
-	<script type="text/javascript" src="../../js/fileinput_locale_es.js"></script>
 
 	<!-- este es el delay de la pagina -->
 	<?php include("../../inc/displayDelay.inc"); ?>
 	<!-- este es el delay de la pagina -->
 	
 	<style>
-	body{
-		background-color: #374046;
-	}
 		.panelTop{
-			background-color: #3e464c;
-			color: #009687;
+			background-color: #009687;
+			color: #FFF;
 		}
 		.panel{
 			border-color: #009687;

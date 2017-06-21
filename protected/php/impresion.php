@@ -78,7 +78,7 @@ $folioX = $_SESSION['folioX'];
 							<div class="cRTextoDos"><?php echo $telCelularAten; ?></div>
 						</div>
 						<div class="ctxtCuadros">
-							<div class="cTexto"><i class="colorGris fa fa-envelope-o" aria-hidden="true"></i> Correo Electronico:</div>
+							<div class="cTexto"><i class="colorGris fa fa-envelope-o" aria-hidden="true"></i> Correo:</div>
 							<div class="cRTexto"><?php echo $correoAten; ?></div>
 						</div>
 						<div class="ctxtCuadros">
