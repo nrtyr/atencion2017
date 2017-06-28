@@ -9,7 +9,7 @@ if (isset($_POST['txtFolio']) && !empty($_POST['txtFolio']) &&
 	isset($_POST['txtNombre']) && !empty($_POST['txtNombre'])) {
 
 	$conX = new SQLite3("../data/aten.db") or die("Problemas para conectar");
-	$csX = $conX -> query("SELECT COUNT(folioAten) AS cuantosFolios FROM datosAtension WHERE folioAten = '$_POST[txtFolio]'");
+	$csX = $conX -> query("SELECT COUNT(folioAten) AS cuantosFolios FROM datosAtension WHERE folioAten = '$_POST[txtFolio]' GROUP BY folioAten");
 	while ($resulCuantos = $csX -> fetchArray()) {
 		$cuantosFolios = $resulCuantos['cuantosFolios'];
 	}
