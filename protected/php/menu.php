@@ -8,8 +8,9 @@ include("seguridad.php");
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<title>Avonn</title>
+	<!-- <meta name="viewport" content="width=devicewidth, minimal-ui"> -->
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Atención Ciudadana</title>
 	<link rel="stylesheet" href="../../css/bootstrap.css">
 	<link rel="stylesheet" href="../../css/bootstrap-theme.css">
 	<link rel="stylesheet" href="../../css/jquery-ui.css">
@@ -26,6 +27,7 @@ include("seguridad.php");
 <body>
 	<div id="main-wrapper">
 		<div class="container">
+			<div class="dispoCuadro">
 			<div class="cuadroCentrado">
 			<div class="c1">
 				<a href="aten.php">
@@ -36,6 +38,7 @@ include("seguridad.php");
 				<a href="vales.php">
 					<img src="../../img/vales.svg" class="imgBtn">
 				</a>
+			</div>
 			</div>
 			</div>
 		</div>
