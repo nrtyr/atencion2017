@@ -20,7 +20,7 @@ if (isset($_POST['txtDiaUno']) && !empty($_POST['txtDiaUno'])) {
 
 
 	$con = new SQLite3("../data/aten.db") or die("Problemas para conectar");
-	$cs = $con -> query("SELECT COUNT(folioAten) AS cuantosFolios FROM datosAtension WHERE fechaAten BETWEEN '$diaUnoC' AND '$diaDosC' GROUP BY folioAten");
+	$cs = $con -> query("SELECT COUNT(folioAten) AS cuantosFolios FROM datosAtension WHERE fechaAten BETWEEN '$diaUnoC' AND '$diaDosC'");
 	while ($resulCuantos = $cs -> fetchArray()) {
 		$cuantosFolios = $resulCuantos['cuantosFolios'];
 	}
@@ -146,7 +146,7 @@ $diaActual = date("Y-m-d");
 <body>
 <div class="container">
 	<div class="row">
-		<div class="col-md-6 col-md-offset-3 panel panel-success">
+		<div class="col-lg-12 panel panel-success">
 		<br>
 		<h3>Total General: Atención Ciudadana</h3>
 		<br>
@@ -165,6 +165,72 @@ $diaActual = date("Y-m-d");
 				 			<td><?php echo $diaDosC; ?></td>
 				 			<td><?php echo $cuantosFolios; ?></td>
 				 		</tr>
+			  </table>
+			  <br>
+			  <table class="table table-bordered">
+			  		<thead class="panelTop">
+				 		<tr>
+				 			<th>Folio:</th>
+				 			<th>Fecha:</th>
+				 			<th>Hora:</th>
+				 			<th>Sección:</th>
+				 			<th>Onomastico:</th>
+				 			<th>Nombre:</th>
+				 			<th>Domicilio:</th>
+				 			<th>Tel Casa:</th>
+				 			<th>Tel Celular:</th>
+				 			<th>Correo:</th>
+				 			<th>Asunto:</th>
+				 			<th>Area:</th>
+				 			<th>Atendio:</th>
+				 		</tr>
+			 		</thead>
+			 		<?php 
+						$conR = new SQLite3("../data/aten.db") or die("Problemas para conectar");
+						$csR = $conR -> query("SELECT * FROM datosAtension WHERE fechaAten BETWEEN '$diaUnoC' AND '$diaDosC'");
+						while ($rAtension = $csR -> fetchArray()) {
+							$folioAtenR = $rAtension['folioAten'];
+							$fechaAtenR = $rAtension['fechaAten'];
+							$horaAtenR = $rAtension['horaAten'];
+							$seccionAtenR = $rAtension['seccionAten'];
+							$onomasticoAtenR = $rAtension['onomasticoAten'];
+							$nombreAtenR = $rAtension['nombreAten'];
+							$domicilioAtenR = $rAtension['domicilioAten'];
+							$telParticularAtenR = $rAtension['telParticularAten'];
+							$telCelularAtenR = $rAtension['telCelularAten'];
+							$correoAtenR = $rAtension['correoAten'];
+							$asuntoAtenR = $rAtension['asuntoAten'];
+							$areaAtenR = $rAtension['areaAten'];
+							$atendioAtenR = $rAtension['atendioAten'];
+
+
+echo '
+
+						<tr>
+				 			<th>'.$folioAtenR.'</th>
+				 			<th>'.$fechaAtenR.'</th>
+				 			<th>'.$horaAtenR.'</th>
+				 			<th>'.$seccionAtenR.'</th>
+				 			<th>'.$onomasticoAtenR.'</th>
+				 			<th>'.$nombreAtenR.'</th>
+				 			<th>'.$domicilioAtenR.'</th>
+				 			<th>'.$telParticularAtenR.'</th>
+				 			<th>'.$telCelularAtenR.'</th>
+				 			<th>'.$correoAtenR.'</th>
+				 			<th>'.$asuntoAtenR.'</th>
+				 			<th>'.$areaAtenR.'</th>
+				 			<th>'.$atendioAtenR.'</th>
+				 		</tr>
+
+';
+
+
+						}
+
+						$conR -> close();
+
+			 		 ?>
+				 		
 			  </table>
 			  <br>
 			  <br>

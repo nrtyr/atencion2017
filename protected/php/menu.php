@@ -39,6 +39,11 @@ include("seguridad.php");
 					<img src="../../img/vales.svg" class="imgBtn">
 				</a>
 			</div>
+			<div class="c1">
+				<a href="reportes.php">
+					<img src="../../img/reportes.svg" class="imgBtn">
+				</a>
+			</div>
 			</div>
 			</div>
 		</div>
